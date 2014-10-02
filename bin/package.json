@@ -1,0 +1,42 @@
+{
+  "name": "oz-coding",
+  "version": "0.0.1",
+  "author": {
+    "name": "Konstantin Pilipenko",
+    "email": "blindlybright@gmail.com"
+  },
+  "description": "OZ Coding",
+  "licence": "MIT",
+  "private": "true",
+  "devDependencies": {
+    "fs-extra": "^0.12.0",
+    "gulp": ">=3.8.0",
+    "gulp-changed": "^1.0.0",
+    "gulp-clean-css": "^1.0.2",
+    "gulp-concat": "^2.4.1",
+    "gulp-debug": "^1.0.1",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-jade": "^0.8.0",
+    "gulp-jshint": "^1.8.4",
+    "gulp-jsmin": "^0.1.4",
+    "gulp-less": "^1.3.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.2.2",
+    "gulp-uglifyjs": "^0.4.2",
+    "gulp-util": "^3.0.1",
+    "imagemin-pngcrush": "^1.0.0",
+    "jade": "^1.7.0",
+    "request": "^2.44.0"
+  },
+  "readmeFilename": "README.md",
+  "scripts": {
+    "preinstall": "npm install gulp jade -g",
+    "install": "gulp compile-full",
+    "rebuild": "gulp compile-full",
+    "server": "node server.js",
+    "start": "node server.js",
+    "installlibs": "node installlibs.js",
+    "watch": "gulp watch",
+    "test": "gulp test"
+  }
+}

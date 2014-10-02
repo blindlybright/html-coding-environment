@@ -1,0 +1,466 @@
+mixin fbform(prfx)
+  - ids = {form: "", activity: "", description: "", name: "", email: "", phone: "", callme: "", file: ""}
+  each val, index in ids
+    - ids[index] = prfx + "_" + index
+
+  form(id=ids.form, method="post", action="/bin/php/ajax_form.php", enctype="multipart/form-data", class="form--writeus")
+    label
+      input(name='activity', id=ids.activity, type="text", placeholder="вид деятельности")
+    label
+      input(name='description', id=ids.description, type="text", placeholder="краткое описание задачи")
+    label.half
+      input(name='name', id=ids.name, type="text", placeholder="ваше имя")
+    label.half
+      input(name='email', id=ids.email, type="email", placeholder="e-mail")
+    label.half
+      input(name='phone', id=ids.phone, type="text", placeholder="телефон")
+    label.half
+      input(name='calltime', id=ids.callme, type="text", placeholder="удобное время для звонка")
+    .input--file(data-input-id=ids.file)
+      label(for=ids.file) Прикрепить файлы
+      input(name="file[]", id=ids.file, type="file")
+    button(type="submit", class="inactive") Отправить заявку
+
+    -if (prfx == 'pop')
+      p.subcomment.subcomment--formin Мы свяжемся с&nbsp;вами в&nbsp;течение одного рабочего дня для&nbsp;обсуждения поставленной задачи.
+
+    .info.info--success
+      p.subtitle Вы написали нам
+      img(src="img/form-sent.png", alt="")
+      p.subcomment Мы вам ответим в&nbsp;самое ближайшее время
+
+    .info.info--error
+      p.subtitle Что-то пошло не так
+      img(src="img/oops.jpg", alt="")
+      p.subcomment Мы обязательно решим этот вопрос в&nbsp;ближайшее время
+
+doctype html
+//[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]
+//[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]
+//[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]
+
+| <!--[if gt IE 8]><!-->
+html(class='no-js', lang='en')
+  | <!--<![endif]-->
+
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    block title
+      title
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block styles
+      link(rel='stylesheet', href='css/normalize.css')
+      //link(rel='stylesheet', href='css/vendor/bxslider/jquery.bxslider.css')
+      link(rel='stylesheet', href='css/vendor/fancybox/jquery.fancybox.css')
+      link(rel='stylesheet', href='css/bp-begin.css')
+      link(rel='stylesheet', href='css/main.css')
+      link(rel='stylesheet', href='css/bp-tail.css')
+    block scripts_top
+      script(src='js/vendor/modernizr-2.8.3.min.js')
+
+  body
+    <!--[if lt IE 8]>
+    p.browsehappy
+      | You are using an <strong>outdated</strong> browser.
+      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      | to improve your experience.
+    <![endif]-->
+
+    .page
+      block content
+        h1 Общий знаменатель
+        .slide.slide--business-systems
+          .slide__container
+            h2 Интегрируем бизнес-системы
+            p.subhead для контроля KPI ваших подразделений в&nbsp;режиме онлайн
+            ul.list.list--business-systems
+              li
+                .gliding
+                  .gliding__container
+                    span.icon.icon--crm
+                    | CRM
+              li
+                .gliding
+                  .gliding__container
+                    span.icon.icon--telephony
+                    | Телефония
+              li
+                .gliding
+                  .gliding__container
+                    span.icon.icon--site
+                    | Сайт
+              li
+                .gliding
+                  .gliding__container
+                    span.icon.icon--webanalitics
+                    | Веб-аналитика
+            p.subtitle.subtitle--logo
+              | Общий знаменатель
+            .action
+              a(href="http://", target="_blank", class="action__link fancybox-opener", data-fancybox-source="#pop_form") Посмотреть в&nbsp;действии!
+
+        .slide.slide--graph
+          .slide__container
+            .graph#graph
+            p Наши знания и&nbsp;опыт открыты для тех,<br />кто действует и&nbsp;развивается.
+            p Созданный нами инструмент мониторинга<br />приводит к&nbsp;Общему знаменателю показатели<br />из различных систем.
+
+        .slide.slide--data
+          .slide__container
+            p.subtitle Сбор данных в&nbsp;режиме онлайн
+            .gliding
+              .gliding__container
+                img(src="img/slide/data.jpg", alt="Сбор данных в режиме онлайн")
+            p
+              | для управления 
+              em
+                | на&nbsp;основе актуальной
+                br
+                | и достоверной информации
+
+        .slide.slide--integration
+          .slide__container
+            p.subtitle Интеграция с&nbsp;бизнес-системами
+            .gliding
+              .gliding__container.gliding__container--first
+              .gliding__container.gliding__container--second
+              .gliding__container.gliding__container--third
+            p
+              em
+                | для&nbsp;доступа 
+              | к&nbsp;данным из&nbsp;CRM, телефонии, сайта,
+              br
+              | веб-аналитики, интернет-рекламы и&nbsp;других источников
+
+        .slide.slide--interface
+          .slide__container
+            p.subtitle Понятный и&nbsp;удобный интерфейс
+            .gliding
+              .gliding__container
+                img(src="img/slide/interface.jpg", alt="Понятный и удобный интерфейс")
+            p
+              | разрабатывается 
+              em
+                | с&nbsp;учетом индивидуальных особенностей
+              br
+              | каждого клиента
+
+        .slide.slide--rating
+          .slide__container
+            p.subtitle Используем решение для оценки
+              br
+              | развития
+            p
+              | и
+              br
+              em делимся накопленным опытом 
+              br
+              | с партнерами
+
+        .slide.slide--developing
+          .slide__container
+            p.subtitle Развиваемся
+            .icon.icon--clocks
+            .column.column--left     
+              p
+                | Применяя 
+                em передовые технологии 
+                | разработки, мы&nbsp;постоянно совершенствуем нашу систему и&nbsp;уделяем особое внимание 
+                em сохранности и&nbsp;защите данных.
+              p
+                | Система доступна только клиенту и&nbsp;располагается на&nbsp;его информационных ресурсах.
+              .action
+                a(href="http://", target="_blank", class="action__link fancybox-opener", data-fancybox-source="#pop_form") Посмотреть в&nbsp;действии!
+
+        .slide.slide--abilities
+          .slide__container
+            p.subtitle Воспользуйтесь возможностями
+            .column.column--left
+              img(src="img/slide/abilities.jpg", alt="Воспользуйтесь возможностями")
+            .column.column--right
+              p Автоматически собирать данные 
+                | в&nbsp;управленческую таблицу, чтобы снизить ошибки в&nbsp;отчетах и&nbsp;сэкономить время на&nbsp;их&nbsp;подготовку. 
+              p В&nbsp;режиме онлайн мониторить показатели
+                | отдела продаж, маркетинга и&nbsp;интернет-рекламы, чтобы вовремя принять нужное решение.
+              .action
+                a(href="http://", target="_blank", class="action__link fancybox-opener", data-fancybox-source="#pop_form") Хочу такую систему!
+
+        .slide.slide--introduction
+          .slide__container
+            p.subtitle Внедряем по&nbsp;этапам
+            ul.stages.accordeon
+              li.index-1.active
+                a(href="#1", class="index") 1
+                p.head Анализ и проектирование
+                p.body Выясняем требования клиента к&nbsp;системе мониторинга и&nbsp;формируем техническое задание.
+                  br
+                  | Проектируем основу персонального интерфейса и&nbsp;согласовываем ее&nbsp;с&nbsp;заказчиком.
+              li.index-2.active-1
+                a(href="#2", class="index") 2
+                p.head Разработка
+                p.body
+                  | Выясняем требования клиента к&nbsp;системе мониторинга и&nbsp;формируем техническое задание.
+              li.index-3
+                a(href="#3", class="index") 3
+                p.head Настройка и запуск
+                p.body
+                  | Выясняем требования клиента к&nbsp;системе мониторинга и&nbsp;формируем техническое задание.
+
+
+        .slide.slide--info-integration
+          .slide__container
+            p.subtitle Интегрируем информацию
+            ul.list.list--logos
+              li.yam
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/yametrics.gif", alt="Яндекс.Метрика")
+              li.fb
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/fb.jpg", alt="Facebook")
+              li.amo
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/amocrm.gif", alt="amoCRM.")
+              li.gadwords
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/googleadwords.gif", alt="Google.Adwords")
+              li.uis
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/uis.jpg", alt="UIS telecom")
+              li.ganalitics
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/googleanalytics.gif", alt="Google.Analitics")
+              li.yad
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/yadirect.gif", alt="Яндекс.Директ")
+              li.vk
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/vk.gif", alt="Вконтакте")
+              li.bitrix24
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/bitrix24.gif", alt="Bitrix24")
+              li.bitrix1s
+                .gliding
+                  .gliding__container
+                    img(src="img/logo/1sbitrix.gif", alt="Bitrix24")
+              li.etc
+                .gliding
+                  .gliding__container
+                    span
+                      | ERP и другие
+            p.subtitle.subtitle--logo
+              | Общий знаменатель
+
+        .slide.slide--indicators
+          .slide__container
+            p.subtitle Отслеживаем показатели
+            .column.column--left
+              .icon.icon--bracket
+              ul.indicators
+                li.item-1 Выручка
+                li.item-2 Количество контактов, лидов и&nbsp;сделок
+                li.item-3 Конверсия в&nbsp;сделки
+                li.item-4 Воронка продаж
+                li.item-5 Расходы
+                li.item-6 Прибыль
+                li.item-7 CPC, CPA, CPO
+                li.item-8 ROI
+            .column.column--right
+              span.title-options в разрезе:
+              ul.list.list--indicators-options
+                li
+                  .icon.icon--canal
+                  | каналов
+                li
+                  .icon.icon--employees
+                  | сотрудников
+                li
+                  .icon.icon--clients
+                  | клиентов
+              .action
+                a(href="http://", target="_blank", class="action__link fancybox-opener", data-fancybox-source="#pop_form") Посмотреть в&nbsp;действии!
+
+        .slide.slide--clients
+          .slide__container
+            p.subtitle Кто наши клиенты?
+            ul.list.list--clients
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--webstudy
+                .sign-clients веб-студия
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--photostudy
+                .sign-clients фотостудия
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--beauty
+                .sign-clients салон красоты
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--factory
+                .sign-clients завод
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--restraunt
+                .sign-clients ресторан
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--webshop
+                .sign-clients интернет-магазины
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--brand
+                .sign-clients представительства мировых брендов
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--ip
+                .sign-clients предприниматели
+              li
+                .gliding.gliding--no
+                  .gliding__container
+                    .icon.icon--mike
+                .sign-clients организаторы концертов и&nbsp;мероприятий
+            p.subcomment Мы&nbsp;работаем с&nbsp;клиентами из&nbsp;любых отраслей, так как наши принципы сбора данных
+              br
+              | и оценки ключевых показателей универсальны.
+
+        .slide.slide--feedback
+          .slide__container
+            p.subtitle Отзывы
+
+            ul.bxslider.bxslider--feedback
+              li
+                .feedback
+                  .feedback__text
+                    .feedback__text__container
+                      | Their&nbsp;greatest desire is&nbsp;to&nbsp;build communication tools that will have a&nbsp;real benefit to&nbsp;the&nbsp;user.
+                  .feedback__author
+                    span.feedback__author__name Елена Петрова
+                    img(src="img/tmp/userpic-01.jpg", alt="Елена Петрова", class="feedback__author__userpic")
+                    span.feedback__author__position директор по&nbsp;маркетингу
+                    span.feedback__author__company
+                      a(href="http://qwerty.name", target="_blank") такой-то компании
+
+              li
+                iframe(width="600", height="339", src="//www.youtube.com/embed/2WRT8WmHCMc", frameborder="0", allowfullscreen)
+              li
+                .feedback
+                  .feedback__text
+                    .feedback__text__container
+                      | Their&nbsp;greatest desire is&nbsp;to&nbsp;build communication tools that will have a&nbsp;real benefit to&nbsp;the&nbsp;user. to&nbsp;the&nbsp;user. to&nbsp;the&nbsp;user.
+                  .feedback__author
+                    span.feedback__author__name Пелагея Бревнова
+                    img(src="img/tmp/userpic-01.jpg", alt="Пелагея Бревнова", class="feedback__author__userpic")
+                    span.feedback__author__position директор по&nbsp;продажам
+                    span.feedback__author__company
+                      a(href="http://qwerty.name", target="_blank") сякой-то компании
+              li
+                img(src="img/tmp/pic-01.jpg", alt="")
+              li
+                iframe(width="600", height="339", src="//www.youtube.com/embed/8QLL2j8ZtxE", frameborder="0", allowfullscreen)
+              li
+                img(src="img/tmp/pic-02.jpg", alt="")
+
+        .slide.slide--writeus
+          //.slide--writeus--success
+          .slide__container
+            p.subtitle Напишите нам
+            .gliding
+              .gliding__container
+                +fbform("fwu")
+
+            p.subcomment Мы свяжемся с&nbsp;вами в&nbsp;течение одного рабочего дня для&nbsp;обсуждения поставленной задачи.
+
+            .fancybox-content-container
+              +fbform("pop")
+
+        .slide.slide--contacts
+          .slide__container
+            p.subtitle Наши контакты
+            .gliding.gliding--no
+              .gliding__container
+                img(src="img/slide/photos.jpg", alt="Наши контакты")
+            ul.list.list--persons
+              li
+                span.actr
+                .bubble
+                  .contact__name Семен Вразумихин
+                  .contact__position работа с клиентами
+                  .contact__email
+                    a(href="mailto:address@commond.ru", target="_blank") address@commond.ru
+                  .contact__phone
+                    | +7 909 123-45-67
+              li
+                span.actr
+                .bubble
+                  .contact__name Семен Вразумихин
+                  .contact__position работа с клиентами
+                  .contact__email
+                    a(href="mailto:address@commond.ru", target="_blank") address@commond.ru
+                  .contact__phone
+                    | +7 909 123-45-67
+              li
+                span.actr
+                .bubble
+                  .contact__name Семен Вразумихин
+                  .contact__position работа с клиентами
+                  .contact__email
+                    a(href="mailto:address@commond.ru", target="_blank") address@commond.ru
+                  .contact__phone
+                    | +7 909 123-45-67
+            p.subtitle.subtitle--logo
+              | Общий знаменатель
+
+        .slide.slide--addresses
+          .slide__container
+            ul.list.list--addresses
+              li.phisical
+                p Москва
+                  br
+                  | Лужнецкая набережная 2/4, стр.&nbsp;61 (2-й этаж)
+                  br
+                  em Бизнес-парк &laquo;Союз&raquo;
+              li.phone
+                a(href="tel:+74951251102", target="_blank") (+7 495) 125-11-02
+              li.yamaps
+                a(href="http://example.name", target="_blank") Yandex.Maps
+              li.gmaps
+                a(href="http://example.name", target="_blank") Google Maps
+              li.email
+                a(href="mailto:hello@commond.ru", target="_blank") hello@commond.ru
+
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')
+
+    block scripts_bottom
+      script(src='js/plugins.js')
+      script(src='js/main.js')
+
+      //- Google Analytics: change UA-XXXXX-X to be your site's ID.
+      //-
+        script
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='//www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+          ga('create','UA-XXXXX-X');ga('send','pageview');
