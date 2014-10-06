@@ -1,16 +1,13 @@
 extends ./include/layout.jade
 
-block title
-  title OZ Coding
-
-//block styles
-  link(rel='stylesheet', href='css/normalize.css')
-  //link(rel='stylesheet', href='css/vendor/bxslider/jquery.bxslider.css')
-  link(rel='stylesheet', href='css/vendor/fancybox/jquery.fancybox.css')
-  link(rel='stylesheet', href='css/bp-begin.css')
-  //link(rel='stylesheet/less', href='src/less/main.less')
+block styles
+  //- link(rel='stylesheet', href='css/normalize.css')
+  //- //link(rel='stylesheet', href='css/vendor/bxslider/jquery.bxslider.css')
+  //- link(rel='stylesheet', href='css/vendor/fancybox/jquery.fancybox.css')
+  //- link(rel='stylesheet', href='css/bp-begin.css')
+  //- //link(rel='stylesheet/less', href='src/less/main.less')
   link(rel='stylesheet', href='css/main.css')
-  link(rel='stylesheet', href='css/bp-tail.css')
+  //- link(rel='stylesheet', href='css/bp-tail.css')
 
   //script
     | less = {
@@ -25,9 +22,8 @@ block title
     | };
 
   //script(src='js/vendor/dev/less-1.7.5.min.js')
-
 block scripts_bottom
+  script(src='js/dev/server-poll.js')
   script(src='js/plugins.js')
   //script(src='js/vendor/dev/raphael.js')
   script(src='js/main.js')
-  script(src='js/dev/longpoll.js') 

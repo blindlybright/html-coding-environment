@@ -9,7 +9,7 @@ var config     = require('../../config').gulp,
 function task() {
 	var l = less({}).on('error', gutil.log);
 
-	gulp.src(src + '/main.less')
+	return gulp.src(src + '/main.less')
 		.pipe(sourcemaps.init())
 		.pipe(l)
 		.pipe(sourcemaps.write())

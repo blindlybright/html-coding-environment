@@ -1,4 +1,5 @@
-var basePath = __dirname + "/..",
+var path = require("path"),
+    basePath = path.resolve(__dirname, ".."),
     binPath = basePath + "/bin",
     tmpPath = basePath + "/tmp",
     src  = basePath + '/src',
@@ -7,7 +8,9 @@ var basePath = __dirname + "/..",
 
 module.exports = {
   server: {
-    port: 8000
+    host: "localhost",
+    port: 8000,
+    basePath: basePath
   },
   gulp: {
     less: {
@@ -31,12 +34,12 @@ module.exports = {
       dest: dest + ""
     }
   },
-  libs: {
-    html5boilerplate: libs + "/html5boilerplate",
-    bootstrap: libs + "/bootstrap"
-  },
+  // libs: {
+  //   html5boilerplate: libs + "/html5boilerplate",
+  //   bootstrap: libs + "/bootstrap"
+  // },
   tmp: {
     path: tmpPath,
-    longpoll: tmpPath + '/longpolldate'
+    timeUpdate: tmpPath + '/timeupdate'
   }
 }

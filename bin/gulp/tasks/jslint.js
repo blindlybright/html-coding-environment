@@ -6,8 +6,8 @@ var config     = require('../../config').gulp,
 	jshint     = require('gulp-jshint')/*,
 	debug = require('gulp-debug')*/;
 
-function task() {
-	gulp.src(['gulpfile.js', dest + '/*[^.min].js'])
+function task( {
+	return gulp.src(['gulpfile.js', dest + '/*[^.min].js'])
 		//.pipe(debug())
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));

@@ -7,7 +7,7 @@ var config     = require('../../config').gulp,
 	concat     = require('gulp-concat');
 
 function task() {
-	gulp.src([
+	return gulp.src([
 			src + "/normalize.css",
 			//src + "/vendor/bxslider/jquery.bxslider.css",
 			src + "/vendor/fancybox/jquery.fancybox.css",

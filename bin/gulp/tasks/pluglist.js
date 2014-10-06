@@ -30,6 +30,7 @@ function task() {
 	    });
 	    console.log("--- :deps");
 	});
+	return;
 }
 module.exports = task;
 

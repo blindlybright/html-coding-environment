@@ -2,11 +2,12 @@
 // "use strict";
 
 var gulp = require('./gulp')([
-	//{name:'pluglist'},  // exp
+	{name:'pluglist'},  // exp
     {name:'plugins', watchTarget:'../js/vendor/*.min.js'},
     {name:'jsmin'},
     {name:'jslint'},
     {name:'uglify'},
+    {name:'uglifyapp'},
     {name:'csscompile'},
     {name:'less', watchTarget:"../src/less/**/*.less"},
     {name:'images', watchTarget:"../src/img/**/*"},
@@ -15,6 +16,6 @@ var gulp = require('./gulp')([
 
 gulp.task('watch',        ['watch:templates', 'watch:less', 'watch:images', 'watch:plugins']);
 gulp.task('test',         ['jslint']);
-gulp.task('compile',      ['templates', 'csscompile', 'uglify']);
+gulp.task('compile',      ['templates', 'csscompile', 'uglifyapp']);
 gulp.task('compile-full', ['compile', 'images']);
 gulp.task('default',      ['watch']);

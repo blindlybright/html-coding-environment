@@ -7,7 +7,7 @@ var config = require('../../config').gulp,
 	debug  = require('gulp-debug');
 
 function task() {
-	gulp.src([
+	return gulp.src([
 			dest + '/*.js',
 			'!' + dest + '/*.min.js'
 		])

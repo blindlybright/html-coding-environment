@@ -3,7 +3,8 @@ var router          = require("./router");
 var requestHandlers = require("./requestHandlers");
 
 var handle = {};
-handle["/tmp/longpolldate"] = requestHandlers.longpoll;
+handle["/tmp/timeupdate"]   = requestHandlers.timeUpdate;
 handle["/refresh"]          = requestHandlers.refresh;
+handle["/lookpoll"]         = requestHandlers.lookpoll;
 
-server.start(router.route, handle);
+var httpServer = server.start(router.route, handle);

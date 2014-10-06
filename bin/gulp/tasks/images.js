@@ -8,7 +8,7 @@ var config   = require('../../config').gulp,
 	pngcrush = require('imagemin-pngcrush');
 
 function task() {
-	gulp.src(src + "/**/*")
+	return gulp.src(src + "/**/*")
 		.pipe(changed(dest))        // Ignore unchanged files
 	    .pipe(imagemin({            // Optimize
 			progressive: true,
