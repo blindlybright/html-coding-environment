@@ -1,14 +1,16 @@
 extends ./include/layout.jade
 
-block styles
-  //- link(rel='stylesheet', href='css/normalize.css')
-  //- //link(rel='stylesheet', href='css/vendor/bxslider/jquery.bxslider.css')
-  //- link(rel='stylesheet', href='css/vendor/fancybox/jquery.fancybox.css')
-  //- link(rel='stylesheet', href='css/bp-begin.css')
-  //- //link(rel='stylesheet/less', href='src/less/main.less')
-  link(rel='stylesheet', href='css/main.css')
-  //- link(rel='stylesheet', href='css/bp-tail.css')
+block title
+  title Test Project
 
+block styles
+  link(rel='stylesheet', href='css/normalize.css')
+  //- link(rel='stylesheet', href='css/vendor/fancybox/jquery.fancybox.css')
+  link(rel='stylesheet', href='css/bp-begin.css')
+  link(rel='stylesheet', href='css/main.css')
+  link(rel='stylesheet', href='css/bp-tail.css') 
+
+  //link(rel='stylesheet/less', href='src/less/main.less')
   //script
     | less = {
     |   env: "development",

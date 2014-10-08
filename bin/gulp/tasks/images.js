@@ -1,14 +1,11 @@
-var config   = require('../../config').gulp,
-	src      = config.images.src,
-	dest     = config.images.dest,
-	gulp     = require('gulp'),
+var gulp     = require('gulp'),
 	changed  = require('gulp-changed'),
-	//debug    = require('gulp-debug'),
+	debug    = require('gulp-debug'),
 	imagemin = require('gulp-imagemin'),
 	pngcrush = require('imagemin-pngcrush');
 
-function task() {
-	return gulp.src(src + "/**/*")
+function task(filesPaths, dest, filename) {
+	return gulp.src(filesPaths)
 		.pipe(changed(dest))        // Ignore unchanged files
 	    .pipe(imagemin({            // Optimize
 			progressive: true,

@@ -1,16 +1,14 @@
-var config   = require('../../config').gulp,
-	src      = config.js.dest,
-	dest     = config.js.dest,
-	gulp     = require('gulp'),
+var gulp     = require('gulp'),
+	concat   = require('gulp-concat')
+	debug    = require('gulp-debug')
 	uglify   = require('gulp-uglifyjs');
 
-function task() {
-	return gulp.src([
-			src + '/plugins.js',
-			src + '/main.js',
-			'!' + src + '/*.min.js',
-		])
-		.pipe(uglify('app.min.js', {
+function task(filesPaths, dest, filename) {
+	return gulp.src(filesPaths)
+		//.pipe(debug())
+		.pipe(concat(filename))
+		//.pipe(debug({verbose: true}))
+		.pipe(uglify(filename, {
 			outSourceMap:false
 		}))
 		.pipe(gulp.dest(dest));

@@ -1,20 +1,14 @@
-var config   = require('../../config').gulp,
-	src      = config.js.dest,
-	dest     = config.js.dest,
-	gulp     = require('gulp'),
+var gulp     = require('gulp'),
 	uglify   = require('gulp-uglify'),
 	rename   = require('gulp-rename'),
 	debug    = require('gulp-debug');
 
-function task() {
-	return gulp.src([
-			src + '/*.js',
-			'!' + src + '/*.min.js',
-		])
+function task(filesPaths, dest, filename) {
+	return gulp.src(filesPaths)
 		.pipe(uglify({
 			outSourceMap:false
 		}))
-		.pipe(debug())
+		//.pipe(debug())
 		.pipe(rename({
 			suffix:'.min'
 		}))

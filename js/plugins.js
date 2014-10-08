@@ -1,1 +1,2 @@
-// compiled with gulp (/vendor/*.min.js)
+// there will be compiled plugins
+console.log("plugs");

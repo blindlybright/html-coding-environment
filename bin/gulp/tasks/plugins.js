@@ -1,24 +1,16 @@
-var config     = require('../../config').gulp,
-	//src        = config.js.src,
-	pluginsrc  = config.js.pluginsrc,
-	dest       = config.js.dest,
-	gulp       = require('gulp'),
-	//gutil      = require('gulp-util'),
-	uglify     = require('gulp-uglifyjs')
-	//, debug = require('gulp-debug')
-	;
+var gulp   = require('gulp'),
+	uglify = require('gulp-uglifyjs'),
+	concat = require('gulp-concat'),
+	debug  = require('gulp-debug');
 
-function task() {
-	return gulp.src([
-			pluginsrc + '/plugins.js',
-			pluginsrc + '/*.min.js',
-			'!'+ pluginsrc + '/jquery*.js',
-			'!'+ pluginsrc + '/modernizr*.js'
-		])
+function task(filesPaths, dest, filename) {
+	return gulp.src(filesPaths)
 		//.pipe(debug())
-		.pipe(uglify('plugins.js', {
+		.pipe(concat(filename))
+		//.pipe(debug())
+/*		.pipe(uglify({
 			outSourceMap:false
 		}))
-		.pipe(gulp.dest(dest));
+*/		.pipe(gulp.dest(dest));
 }
 module.exports = task;

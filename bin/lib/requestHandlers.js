@@ -1,9 +1,9 @@
 var fs   = require("fs-extra"),
 	url  = require("url"),
 	path = require("path"),
-	clients = {},
 	config = require("../config"),
-	fileLPDate = config.tmp.timeUpdate;
+	fileLPDate = config.tmp.lastUpdate,
+	clients = {};
 
 function parseHref(str) {
 	var query = url.parse(str).query || "",
@@ -63,8 +63,8 @@ function refresh(req, res) {
 	res.end();
 }
 
-function timeUpdate(req, res) {
-	console.log("Request handler 'timeUpdate' was called.");
+function lastUpdate(req, res) {
+	console.log("Request handler 'lastUpdate' was called.");
 
 	res.on("close", function(){
 		delete clients[url.parse(req.url).href];
@@ -85,5 +85,5 @@ function lookpoll(req, res) {
 }
 
 exports.refresh    = refresh;
-exports.timeUpdate = timeUpdate;
+exports.lastUpdate = lastUpdate;
 exports.lookpoll   = lookpoll;

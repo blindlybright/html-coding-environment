@@ -1,21 +1,12 @@
-var config     = require('../../config').gulp,
-	src        = config.css.src,
-	dest       = config.css.dest,
-	gulp       = require('gulp'),
-	//gutil      = require('gulp-util'),
+var gulp       = require('gulp'),
 	cleancss   = require('gulp-clean-css'),
-	concat     = require('gulp-concat');
+	concat     = require('gulp-concat'),
+	debug      = require('gulp-debug');
 
-function task() {
-	return gulp.src([
-			src + "/normalize.css",
-			//src + "/vendor/bxslider/jquery.bxslider.css",
-			src + "/vendor/fancybox/jquery.fancybox.css",
-			src + "/bp-begin.css",
-			src + "/main.css",
-			src + "/bp-tail.css",
-		])
-		.pipe(concat('app.min.css'))
+function task(filesPaths, dest, filename) {
+	return gulp.src(filesPaths)
+		//.pipe(debug())
+		.pipe(concat(filename))
 		.pipe(cleancss({
 			//keepBreaks:false,
 			keepSpecialComments:0

@@ -4,7 +4,7 @@ var config = require("../../config"),
     fs     = require("fs-extra"),
     host   = config.server.host,
     port   = config.server.port,
-    fileLPDate = config.tmp.timeUpdate,
+    fileLPDate = config.tmp.lastUpdate,
     isServerStarted = false;
 
 function start(route, handle) {
