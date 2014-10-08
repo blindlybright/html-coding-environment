@@ -1,21 +1,30 @@
 # HTML coding environment
 
-## installation:
+## lifecycle
+
+### installation:
 * `cd ./bin`
 * `npm install`
 
-## running nodejs server:
+### running nodejs server:
 `npm start`  
 you can also use apache server looking to repository root
 
-## watching files changings:
+### watching files changings:
 `gulp watch`  
 (this will watch for file changes in folder src, which are compiled
 as required (images optimizations, compiling js plugins, compiling templates))
 
-## compiling files for publishing:
+### compiling files for publishing:
 `gulp compile`
 (& plz before each commit, until git hooks will be introduced)
+
+## roadmap:
+
+* git hooks on compiling before commiting
+* sass, stylus, coffeescript, haml, slim
+* nodejs' parsing GET-variables for compiling templates with diff test data (and introducing some logic while template rendering with real data)
+
 
 -------
 
