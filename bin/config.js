@@ -63,17 +63,29 @@ module.exports = {
       ],
       paths:"js"
     },
-  	csscompile: {
+  	// csscompile: {
+   //    files: [
+  	//     "/normalize.css",
+   //  		//"/vendor/fancybox/jquery.fancybox.css",
+   //  		"/bp-begin.css",
+   //  		"/main.css",
+   //  		"/bp-tail.css"
+  	//   ],
+  	//   paths:"css",
+   //    filename: "app.css"
+  	// },
+    uncss: {
       files: [
-  	    "/normalize.css",
-    		//"/vendor/fancybox/jquery.fancybox.css",
-    		"/bp-begin.css",
-    		"/main.css",
-    		"/bp-tail.css"
-  	  ],
-  	  paths:"css",
-      filename: "app.min.css"
-  	},
+        "/normalize.css",
+        //"/vendor/fancybox/jquery.fancybox.css",
+        "/bp-begin.css",
+        "/main.css",
+        "/bp-tail.css"
+      ],
+      paths: "css",
+      filename: "app.min.css",
+      pages: ["../index.html"]
+    },
     js: {
       src: paths.dest + "/js",
       dest: paths.dest + "/js"
@@ -100,7 +112,6 @@ module.exports = {
       paths:"js"
     },
     uglifyapp: {
-      depends: ["uglify"],
       files: [
         "/plugins.min.js",
         "/main.min.js"/*,

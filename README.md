@@ -22,8 +22,9 @@ as required (images optimizations, compiling js plugins, compiling templates))
 ## roadmap:
 
 * git hooks on compiling before commiting
-* sass, stylus, coffeescript, haml, slim
+* sass, stylus, coffeescript, haml, slim, etc.
 * nodejs' parsing GET-variables for compiling templates with diff test data (and introducing some logic while template rendering with real data)
+* filling lib folder for taking useful techs' code & examples
 
 
 -------

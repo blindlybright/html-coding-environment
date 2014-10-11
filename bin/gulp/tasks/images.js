@@ -8,7 +8,9 @@ function task(filesPaths, dest, filename) {
 	return gulp.src(filesPaths)
 		.pipe(changed(dest))        // Ignore unchanged files
 	    .pipe(imagemin({            // Optimize
+	    	optimizationLevel: 3,
 			progressive: true,
+	    	interlaced: true,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngcrush()]
 		}))
