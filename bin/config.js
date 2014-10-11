@@ -28,7 +28,14 @@ module.exports = {
       files: "/main.less",
       src: paths.src + "/less",
       dest: paths.dest + "/css",
-      filename: "main.css"
+      filename: "mainl.css"
+    },
+    sass: {
+      watch: relPaths.src + "/sass/**/*.scss",
+      files: "/main.scss",
+      src: paths.src + "/sass",
+      dest: paths.dest + "/css",
+      filename: "mains.css"
     },
     images: {
       watch: relPaths.src + "/img/**/*",

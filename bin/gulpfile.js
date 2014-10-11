@@ -4,6 +4,7 @@
 var config = require("./config").gulp,
 	tasksToLoad = [
 		{name:'less', watch: true},
+		{name:'sass', watch: true},
 		{name:'images', watch: true},
 		{name:'templates', watch: true},
 		{name:'plugins', watch: true},
