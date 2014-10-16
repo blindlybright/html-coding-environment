@@ -9,6 +9,7 @@ var config     = require('../../config').gulp,
 	debug      = require('gulp-debug');
 
 function task(filesPaths, dest, filename) {
+	//console.log(process.env.PWD);
 	return gulp.src(filesPaths)
 //		.pipe(debug())
 		.pipe(rename({suffix: ".min"}))

@@ -91,7 +91,7 @@ module.exports = {
       ],
       paths: "css",
       filename: "app.min.css",
-      pages: ["../index.html"]
+      pages: ["../index.html"] // rel to bin path
     },
     js: {
       src: paths.dest + "/js",
@@ -119,6 +119,7 @@ module.exports = {
       paths:"js"
     },
     uglifyapp: {
+      depends: ["uglify"],
       files: [
         "/plugins.min.js",
         "/main.min.js"/*,
@@ -126,6 +127,14 @@ module.exports = {
       ],
       paths:"js",
       filename: "app.min.js"
+    },
+    updatedevdata: {
+      files: [
+        '/manifest.appcache',
+        '/humans.txt'
+      ],
+      src: paths.src + "",
+      dest: paths.dest + ""
     }
   },
   // libs: {

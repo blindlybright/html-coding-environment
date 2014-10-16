@@ -54,7 +54,7 @@ module.exports = function(tasks) {
 			src = confPaths.src || "",
 			dest = confPaths.dest || "",
 			filesPaths = normalizeFilesPaths(files, src),
-			depends = task.depends || [],
+			depends = conf.depends || [],
 			watches = (
 				conf.watch !== undefined
 					? conf.watch
