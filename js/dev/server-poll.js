@@ -10,8 +10,10 @@
 			if (xhr.readyState != 4) return;
 
 			//console.log("serverpoll returned: " + xhr.status + "; " + xhr.responseText);
-			if (xhr.responseText*1 !== parseInt(xhr.responseText)) {
-				window.location.reload();
+			if (xhr.status !== 404) {
+				if (xhr.responseText * 1 != parseInt(xhr.responseText)) {
+					window.location.reload();
+				}
 			}
 			//serverpoll();
 		}
