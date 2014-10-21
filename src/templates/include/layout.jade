@@ -21,13 +21,20 @@ mixin fbform(prfx)
       input(name="file[]", id=ids.file, type="file")
     button(type="submit", class="inactive") Отправить заявку
 
+block vars
+  - var isCompiled = false
+
+- var htmlAttrs = {class:'no-js', lang:'en'}
+- if (isCompiled)
+  - htmlAttrs.manifest = "manifest.appcache"
+
 doctype html
 //[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]
 //[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]
 //[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]
 
 | <!--[if gt IE 8]><!-->
-html(class='no-js', lang='en', manifest="manifest.appcache")
+html&attributes(htmlAttrs)
   | <!--<![endif]-->
 
   head
@@ -36,7 +43,21 @@ html(class='no-js', lang='en', manifest="manifest.appcache")
     block title
       title Test Project Template
     meta(name='description', content='')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    meta(name="HandheldFriendly", content="True")
+    meta(name="MobileOptimized", content="768")
+    meta(http-equiv="cleartype", content="on")
+    link(type="text/plain", rel="author", href="humans.txt")
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+    link(rel="icon", href="/favicon.ico", type="image/x-icon")
+    // link(rel="apple-touch-startup-image", href="icon/apple-touch-icon-144x144.png")
+    // link(rel="apple-touch-icon", href="icon/apple-touch-icon.png")
+    // link(rel="apple-touch-icon", href="icon/apple-touch-icon-57x57.png", sizes="57x57")
+    // link(rel="apple-touch-icon", href="icon/apple-touch-icon-72x72.png", sizes="72x72")
+    // link(rel="apple-touch-icon", href="icon/apple-touch-icon-114x114.png", sizes="114x114")
+    // link(rel="apple-touch-icon", href="icon/apple-touch-icon-120x120.png", sizes="120x120")
+    // link(rel="apple-touch-icon", href="icon/apple-touch-icon-144x144.png", sizes="144x144")
+
     block styles
       link(rel='stylesheet', href='css/normalize.css')
       //- link(rel='stylesheet', href='css/vendor/fancybox/jquery.fancybox.css')

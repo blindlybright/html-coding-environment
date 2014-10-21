@@ -21,10 +21,13 @@ as required (images optimizations, compiling js plugins, compiling templates))
 
 ## roadmap:
 
-* git hooks on compiling before commiting
+* git hooks on `gulp compile` before commiting
+* favicons generating (imagemagick)
+* fonts generating (1. svg iconfonts; 2. format bridges)
+* autoprefixer (postcss processing)
 * sass, stylus, coffeescript, haml, slim, etc.
-* nodejs' parsing GET-variables for compiling templates with diff test data (and introducing some logic while template rendering with real data)
 * filling lib folder for taking useful techs' code & examples
+* nodejs' parsing GET-variables for compiling templates with diff test data (and introducing some logic while template rendering with real data)
 
 
 -------

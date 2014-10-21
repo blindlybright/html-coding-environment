@@ -4,3 +4,5 @@ bin/node_modules
 bin/npm-debug.log
 lib/
 tmp/
+*.sublime-project
+*.sublime-workspace

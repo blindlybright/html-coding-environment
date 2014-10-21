@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 "use strict";
-var libs = ["html5boilerplate", "bootstrap"];
+var colors = require("colors/safe"),
+	config = require("./config"),
+	conflibs = config.libs;
 
-console.log("libs installation [dummy file]");
-libs.forEach(function(i, v){
-	console.log("* " + i);
-});
+console.log(colors.green("libs installation [dummy]"));
+for (var i in conflibs) {
+	if (conflibs.hasOwnProperty(i)) {
+		console.log(colors.yellow("*") + colors.white(" %s ")+colors.grey("[from: %s, to: %s]"), i, conflibs[i].repo, conflibs[i].dest);
+	}
+}

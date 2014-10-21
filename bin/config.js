@@ -137,10 +137,16 @@ module.exports = {
       dest: paths.dest + ""
     }
   },
-  // libs: {
-  //   html5boilerplate: paths.libs + "/html5boilerplate",
-  //   bootstrap: paths.libs + "/bootstrap"
-  // },
+  libs: {
+    html5boilerplate: {
+      dest: paths.libs + "/html5-boilerplate",
+      repo: "git@github.com:h5bp/html5-boilerplate.git"
+    },
+    bootstrap: {
+      dest: paths.libs + "/bootstrap",
+      repo: "git@github.com:twbs/bootstrap.git"
+    }
+  },
   tmp: {
     path: paths.tmp,
     lastUpdate: paths.tmp + '/lastupdate'
